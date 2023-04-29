@@ -1,0 +1,17 @@
+import random
+import time
+
+name = input("What is your name? : ")
+age = input("What is your age? : ")
+attempts = int(input("How many times do you want to roll the dice? : "))
+
+print("Hi {}, let's roll the dice {} times!".format(name, attempts))
+
+for i in range(attempts):
+    input("Press enter to roll the dice...")
+    dice_1 = random.randrange(1, 7)
+    dice_2 = random.randrange(1, 7)
+    time.sleep(1)
+    print("Roll {}: {} {}".format(i+1, dice_1, dice_2))
+    
+print("Thanks for playing, {}!".format(name))
