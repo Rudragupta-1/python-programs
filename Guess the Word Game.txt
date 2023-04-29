@@ -1,0 +1,40 @@
+from random import randint
+
+print("(: Welcome to the Guesstum World :)")
+
+# Get the lower and upper limits
+a = int(input("Enter the lower limit: "))
+b = int(input("Enter the higher limit: "))
+
+# Initialize variables for attempts and score
+attempts = 3
+score = 0
+
+# Generate a random number between the limits
+number = randint(a, b)
+
+# Start the game loop
+while attempts > 0:
+    # Get the user's guess
+    guess = int(input("Enter your guess: "))
+
+    # Check if the guess is correct
+    if guess == number:
+        # Increase the score by 10 and break out of the loop
+        score += 10
+        print("Congratulations! You guessed the number.")
+        print(f"Your score is {score}")
+        break
+    else:
+        # Decrement the number of attempts and provide a hint
+        attempts -= 1
+        if guess > number:
+            print("Too high.")
+        else:
+            print("Too low.")
+        print(f"You have {attempts} attempts remaining.")
+        score = 0
+
+# Check if the user ran out of attempts
+if attempts == 0:
+    print(f"Sorry, you ran out of attempts. The number was {number}.")
